@@ -31,7 +31,7 @@ export const handler = async (event) => {
 
         const result = await ddbClient.send(command);
         if (!result.Item) {
-            return respond(404, { message: "Customer not found" });
+            return respond(400, { message: "Customer not found" });
         }
 
         const item = unmarshall(result.Item);
